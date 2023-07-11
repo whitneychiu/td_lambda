@@ -16,3 +16,6 @@ tqdm==4.65.0
 ```python
 python main.py
 ```
+
+### Contact
+This is my re-implementation of the paper. If there are any questions, please contact **Whitney Chiu** <wchiu@gatech.edu>
