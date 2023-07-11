@@ -35,8 +35,6 @@ class random_walk_agent(object):
             for j in range(self.n_sequence):
                 one_training_set.append(self.sample_sequence())
             training_set.append(one_training_set)
-        # print(training_set)
-        # print(np.array(training_set).shape)
 
         return training_set
     
@@ -45,10 +43,6 @@ class random_walk_agent(object):
         grad = np.zeros([self.n_states])
         
         for t in range(len(sequence)-1):
-            # print("====")
-            # print(t)
-            # print(seq)
-            # print(seq[t])
             state_vector = np.zeros([self.n_states])
             state_at_t = sequence[t]
             state_vector[state_at_t] = 1
@@ -78,8 +72,6 @@ class random_walk_agent(object):
             for s in training_data_:
                 delta_w += self.get_delta_w(s, w, lr, lam)
                 
-            # print("delta_w", delta_w)
-
             # When a vector norm is very small, it means the update is now very small, thus the algorithm converges
             # Setting is as 1e-3 to allow for faster testing; can set it to lower value to produce a smoother curve in the graph
             if np.linalg.norm(delta_w) < 1e-3:
